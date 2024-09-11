@@ -53,12 +53,7 @@ export async function generateBio(
 ) {
   "use server";
 
-  const {
-    object: data,
-    warnings,
-    finishReason,
-    rawResponse,
-  } = await generateObject({
+  const { object: data } = await generateObject({
     model: groq(model),
     system: systemPrompt,
     prompt: input,
@@ -72,7 +67,6 @@ export async function generateBio(
       ),
     }),
   });
-  console.log(warnings, finishReason, rawResponse);
 
   return { data };
 }
