@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
 import "./globals.css";
+import GridPattern from "@/components/magicui/animated-grid-pattern";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +32,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <GridPattern
+          maxOpacity={0.2}
+          className="text-gray-400 -z-10 opacity-45 fixed"
+          width={60}
+          height={60}
+        />
+        <TooltipProvider>
+          {children}
+          <Toaster />
+        </TooltipProvider>
       </body>
     </html>
   );
