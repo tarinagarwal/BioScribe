@@ -6,7 +6,7 @@ import { z } from "zod";
 import endent from "endent";
 
 const groq = createOpenAI({
-  apiKey: process.env.GROQ_API_KEY ?? "",
+  apiKey: process.env.GROQ_API_KEY,
   baseURL: "https://api.groq.com/openai/v1",
 });
 
@@ -26,6 +26,7 @@ Generate the Bio:
     - What does the user do?
     - What can others expect from the user?
   - Reflect the given 'Bio Tone' and 'Bio Type' in the style and language of the bio. Do not explicitly mention the tone or type.
+  - Provide at least 4 bios.
 
 Bio Requirements:
 
